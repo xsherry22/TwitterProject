@@ -16,6 +16,11 @@
             <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small></h5>
             <p th:utext="${tweet.message}"></p>
     	</div>
+     
+	     <div th:if="${errorTweets}">
+		        <h2><span class="text-error" th:utext="${errorTweets}"></span></h2>
+			</div>
+    
     </div>
     
     

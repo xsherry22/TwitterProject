@@ -27,7 +27,11 @@ public class TweetController {
     @GetMapping(value= {"/tweets", "/"})
     public String getFeed(Model model){
         List<Tweet> tweets = tweetService.findAll();
+        if(tweets.isEmpty()) {
+        	model.addAttribute("errorTweets", "No Tweets Are Available");
+        }
         model.addAttribute("tweetList", tweets);
+      
         return "feed";
     }
     
@@ -46,6 +50,7 @@ public class TweetController {
             model.addAttribute("successMessage", "Tweet successfully created!");
             model.addAttribute("tweet", new Tweet());
         }
+        
         return "newTweet";
     }
 }

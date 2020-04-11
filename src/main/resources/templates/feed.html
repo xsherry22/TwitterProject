@@ -11,16 +11,21 @@
 	<div th:replace="fragments/navbar"></div>
     <div class="container">
         <h2>Tweets</h2>
+    
         <div th:each="tweet:${tweetList}">
-            <h5>@<span th:text="${tweet.user.username}"></span>
+            <div class="list-group">
+        	<a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+        	<div class="d-flex w-100 justify-content-between">
+            <h5 class = "mb-1">@<span th:text="${tweet.user.username}"></span>
             <small><span th:text="${#dates.format(tweet.createdAt, 'M/d/yy')}"></span></small></h5>
             <p th:utext="${tweet.message}"></p>
+            </div></a>
     	</div>
      
 	     <div th:if="${errorTweets}">
 		        <h2><span class="text-error" th:utext="${errorTweets}"></span></h2>
 			</div>
-    
+   	 </div>
     </div>
     
     

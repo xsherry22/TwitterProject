@@ -8,6 +8,8 @@
 		<div id="navbar">
 		    <ul class="nav navbar-nav" sec:authorize="isAuthenticated()">
 		        <li><a href="/tweets/new">New Tweet</a></li>
+		       <li><a href="/users">See All Users</a></li>
+		        
 		    </ul>
 		    <ul class="nav navbar-nav navbar-right">
                 <li sec:authorize="isAuthenticated()"><a style="pointer-events: none;color: #00aced">

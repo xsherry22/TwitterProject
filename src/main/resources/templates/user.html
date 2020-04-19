@@ -11,7 +11,9 @@
 		<div class = "container">
 			<h2>Profile for <span th:text="${user.firstName}"></span> 
 			<span th:text="${user.lastName}"></span> - <span style="color: #00aced">
-			@<span th:text="${user.username}"></span></span></h2>
+			@<span th:text="${user.username}"></span>	
+			</span>
+			<span th:utext="${isSelfPage} ? '(Me)': '' "></span></h2>
 			<h5>Joined <span th:text="${#dates.format(user.createdAt, 'MMMM dd, yyyy')}"></span></h5>		
 		
 		

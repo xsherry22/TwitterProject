@@ -23,13 +23,21 @@
 			
 		    <h2>Users</h2>
 		    
-		    
+		  
 		    <div class="list-group" th:each="user:${users}">
 		    	<a th:href="@{/users/} + ${user.username}" class="list-group-item list-group-item-action">
 		            <div class="row">
 		                <div class="col col-sm-6">
-		                    <h5 class="mb-1" style="color: #00aced"><i class="fab fa-twitter"></i> @<span th:text="${user.username}"></span></h5>	
-		                    <h5 class="mb-1"><span th:text="${user.firstName}"></span> <span th:text="${user.lastName}"></span></h5>
+		                    <h5 class="mb-1" style="color: #00aced"><i class="fab fa-twitter"></i>
+			                     @<span th:text="${user.username}"> </span>
+			                    <span th:utext="${isSelfPage} ? '(Me)': '' "></span>
+		                     </h5>	
+		                    <h5 class="mb-1">
+			                    <span th:text="${user.firstName}"></span> 
+			                    <span th:text="${user.lastName}"></span>
+		     
+		                    </h5>
+		               
 		                </div>
 		                <div class="col col-sm-2 col-sm-offset-4 text-right">
 		                    
@@ -51,15 +59,15 @@
 							    <button style="float:right" type="Submit" class="btn btn-md btn-primary unfollow_btn">Following</button>
 							</form>
 
-		                </div>
-		            </div>
-		        </a>
-		    </div>
+				                </div>
+				            </div>
+				        </a>
+				    </div>
 		    
-		    
-		    <div th:if="${#lists.isEmpty(users) and filter == 'followers'}"><h3>You don't have any followers</h3></div>
-			<div th:if="${#lists.isEmpty(users) and filter == 'following'}"><h3>You're not following anyone</h3></div>
-		</div>
+				    
+			    <div th:if="${#lists.isEmpty(users) and filter == 'followers'}"><h3>You don't have any followers</h3></div>
+				<div th:if="${#lists.isEmpty(users) and filter == 'following'}"><h3>You're not following anyone</h3></div>
+			</div>
 		<div th:replace="/fragments/styling :: body-links" ></div>
 	</body>
     
